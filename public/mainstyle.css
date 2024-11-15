@@ -365,7 +365,11 @@ body{
     flex-direction: row;
     align-items: center;
     margin-top: 10px;
-    max-height: 100%;
+    max-height: 400px;
+}
+
+.container-form{
+  max-height: 360px;
 }
 
 input.input-threshold{
