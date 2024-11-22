@@ -21,6 +21,9 @@
 
     <title>Dashboard IoT</title>
     <style>
+        dialog::backdrop {
+            
+        }
         .topbar {
             display: flex;
             align-items: center;
@@ -138,9 +141,13 @@
                 </div>
             </div>
 
-
             <div class="right-icons gap-7 pr-4">
+    
+                <button id="openModalBtn" style="" type="button" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa-solid fa-bell notification-icon"></i>
+                </button>
+
+
                 <div class="profile">
                     <img src="{{asset('img/customer01.jpg')}}" alt="Profile Picture">
                     <div class="profile-info">
@@ -148,10 +155,107 @@
                         <span class="email">lorem@ipsum.com</span>
                     </div>
                 </div>
+
             </div>
         </div>
+
+        <div id="modal" class="modal flex container-fluid">
+
+            <div class="modal-content p-xl-4 position-absolute max-w-screen-md container-fluid w-max bg-gray-50" style="width:26%; height:500px;border-radius:40px">
+                
+                <span id="closeModalBtn" class="close float cursor-pointer font-weight-bold" ></span>
+                <h5 class="font-weight-bold">Notifications</h5>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                        <div class="items">
+                            <h6 class=" font-bold">
+                                Warning! The fire sensor has exceeded the threshold
+                            </h6>
+                            <p style="font-size: 15px; color:var(--grey)">
+                                yesterday, 00.21
+                            </p>
+                        </div>
+                    </div>
+            </div>
+            </div>
+
         @yield('content')
     </div>
+
+        
 
     <script src="{{ asset('script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0sG1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

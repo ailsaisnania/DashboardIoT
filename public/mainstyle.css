@@ -138,12 +138,14 @@ body{
 
 /* ===============main================== */
 .main{
-    position: absolute;
+    position: absolute ;
     width: calc(100% - 260px);
     left: 260px;
     min-height: 100vh;
     background: var(--white);
     transition: ease-in 0.5s;
+    z-index: 1;
+    
 }
 
 .main.active{
@@ -182,6 +184,36 @@ body{
   gap: 400px;
   padding-left: 400px;
 }
+
+.modal{
+  z-index: 2000;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Abu-abu transparan */
+  z-index: 999; /* Prioritas lebih tinggi dari elemen lain */
+  display: none; /* Default: tidak terlihat */
+
+
+}
+
+.modal-content{
+   background-color: white;
+   top: 10%;
+   right:20px;
+   border-radius: 100px;
+   overflow-y: scroll; /* Enables vertical scrolling */
+  scrollbar-width: none; /* For Firefox: hides scrollbar */
+  -ms-overflow-style: none; /* For IE and Edge: hides scrollbar */
+
+
+}
 /* ========================API===================================== */
 
 .api{
@@ -189,10 +221,12 @@ body{
   width: 95%;
   flex-direction: column;
 }
+
 .input-wrapper{
   position: relative;
   width: 100%;
   max-width: 100%;
+  z-index: 0;
 }
 
 .input-wrapper .input-text{
@@ -203,32 +237,9 @@ body{
   border: transparent;
   background: #FFF;
   box-shadow: 4px 3px 8px 0px rgba(0, 0, 0, 0.15);
-    /* border-radius: 22px !important;
-    width: 104% !important;
-    border: transparent;
-    padding: 15px 0px 15px 10px !important;
-    height: max-content;
-    padding: 3px;
-    background: #FFF;
-    box-shadow: 4px 3px 8px 0px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0; */
 }
 
 .submit{
-    /* width: 105px;
-    height: 35px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 18px;
-    background-color: var(--blueiot);
-    border-color: transparent;
-    color: white;
-    aspect-ratio: 1;
-    position: absolute;
-    right:0;
-    top: 17px;
-    left: 96%; */
     position: absolute;
     right: 10px; /* Jarak dari tepi kanan input */
     top: 55%;
