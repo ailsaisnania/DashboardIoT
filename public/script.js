@@ -54,7 +54,7 @@ toggle.onclick = function(){
 });
 
 
-
+//modal for notification
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal');
     const openModalBtn = document.getElementById('openModalBtn');
@@ -76,4 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     });
+
+    
 

@@ -32,3 +32,56 @@ $(document).on("click", "#remove", function(del){
 
 
 
+
+
+//modal addAPI
+// Get references to elements
+const modal = document.getElementById('modal-api');
+const triggerText = document.getElementById('addAPI');
+const closeModal = document.getElementById('close-modal');
+
+// Show the modal when the text is clicked
+triggerText.addEventListener('click', () => {
+  modal.style.display = 'flex'; // Show modal
+});
+
+// Hide the modal when the "X" is clicked
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none'; // Hide modal
+});
+
+
+// Hide the modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none'; // Hide modal
+  }
+});
+
+
+
+//modal addAPI
+// Get references to elements
+const modallist = document.getElementById('modal-list-api');
+const button = document.getElementById('list');
+const closeModalx = document.getElementById('close-modalx');
+
+// Show the modal when the text is clicked
+button.addEventListener('click', () => {
+  modallist.style.display = 'flex'; // Show modal
+});
+
+// Hide the modal when the "X" is clicked
+closeModalx.addEventListener('click', () => {
+  modallist.style.display = 'none'; // Hide modal
+});
+
+
+// Hide the modal when clicking outside the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modallist) {
+    modallist.style.display = 'none'; // Hide modal
+  }
+});
+
+

@@ -4,20 +4,93 @@
 @section('content')
 <!-- ==========================API============================ -->
 <div class="api flex flex-col m-lg-5 m-md-3 m-sm-1">
-    <div class="title-api p-1 pb-2">
+    <div class="title-api p-1">
         <h5>API Key</h5>
+        <p style="color:var(--grey)"> Put your API key on the field below. If you have more than one sensors, manage it by 
+        <span>
+            <a id="addAPI" style="cursor: pointer; color: blue; text-decoration: underline;">click here.</a> 
+        </span>
+        </p>
     </div>
 
-    <div class="input-wrapper pt-2">
-        <input class="input-text" type="text" placeholder="Input Your API here">
+    <div id="modal-api" class="modal-api container-fluid">
+
+        <div class="apiInput container-fluid overflow-auto position-absolute mt-xl-5 mt-md-2 p-xl-3 p-md-2 p-sm-1">
+        <span id="close-modal" class="close justify-end font-semibold">&times;</span>
+            <h3 class="h3 pb-4" style="font-weight:600">ADD API </h3> 
+                <div class="apiwrapper flex flex-row mb-xl-4 mb-md-2">
+                    <input type="text" class="input-api p-3" placeholder="Insert your API name">
+                    <input type="text" class="input-api p-3" placeholder="API key">
+                    <button class="button-save p-2" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white">add</button>
+                </div>
+
+                <table class="table table-responsive text-center table-striped table-hover" style="line-height: 60px !important;">
+                <thead>
+                    <tr>
+                        <th scope="col">API name</th>
+                        <th scope="col">API key</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Humidity</td>
+                        <td>nttps://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
+                        <td>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Fire Sensor</td>
+                        <td>nttps://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
+                        <td>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Fire Sensor</td>
+                        <td>nttps://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
+                        <td>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="input-wrapper">
+        <input class="input-text p-3" type="text" placeholder="Input Your API here">
+        <button id="list" class="submit" style="right: 80px; background-color:transparent"><img width="30" height="30" src="https://img.icons8.com/ios/50/down-squared--v2.png" alt="down-squared--v2"/></button>
         <button class="submit"> Submit</button>
+    </div>
+
+    <div id="modal-list-api" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: top; z-index: 20003;" class="container-fluid">
+
+        <div id="list-api" style=" background-color: white; top: 26%; height: max-content; padding: 20px; border-radius: 8px; width: 20%; max-width: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: left;max-height: 400px;" class="modal-content p-xl-4 position-absolute max-w-screen-md container-fluid w-max">
+            <span id="close-modalx" class="close justify-end font-semibold">&times;</span>
+                <h5>API List</h5>
+                <div class="list-group border-none list-group-flush mt-3" style="line-height:40px">
+                <a href="#" class="list-group-item list-group-item-action">Fire sensors</a>
+                <a href="#" class="list-group-item list-group-item-action">Temprature sensors </a>
+                <a href="#" class="list-group-item list-group-item-action">Water sensors</a>
+                <a href="#" class="list-group-item list-group-item-action">Fire sensors </a>
+                <a href="#" class="list-group-item list-group-item-action">Temprature sensors </a>
+                <a href="#" class="list-group-item list-group-item-action">Water sensors</a>
+                </div>
+        </div>
     </div>
 </div>
 
 
 <!-- =====================================FEATURES AND RULE======================= -->
 <div class="details p-0 m-lg-5 m-md-3 bg-transparent">
-    <div class="rule">
+    <div class="rule container-fluid overflow-auto">
         <div class="cardHeader">
             <h4>Just Found 5 Feature(s)</h4>
             <p>Choose features dimension to create visualization</p>
@@ -200,11 +273,7 @@
 </div>
 
 
-
-<script
-  src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
-
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="{{asset('ScriptaddThreshold.js')}}">
 </script>
 
