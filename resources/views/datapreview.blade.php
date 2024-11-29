@@ -283,4 +283,5 @@
         </div>
     </div>
 
+    <script src="{{ asset('fetch.js') }}"></script>
 @endsection

@@ -78,4 +78,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{('script2.js')}}"></script>
+<script src="{{ asset('fetch.js') }}"></script>
 @endsection
