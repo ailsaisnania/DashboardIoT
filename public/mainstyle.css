@@ -906,3 +906,12 @@ cursor: pointer;
   color: white;
   line-height: 50px;
 }
+
+
+.btnaddChart{
+  background-color: var(--blueiot);
+  color: white;
+  border-radius: 20px;
+  line-height: 50px;
+
+}

@@ -18,11 +18,16 @@
         <div class="apiInput container-fluid overflow-auto position-absolute mt-xl-5 mt-md-2 p-xl-3 p-md-2 p-sm-1">
         <span id="close-modal" class="close justify-end font-semibold">&times;</span>
             <h3 class="h3 pb-4" style="font-weight:600">ADD API </h3> 
+
+            <form action="" method="post" >
+                @csrf
                 <div class="apiwrapper flex flex-row mb-xl-4 mb-md-2">
-                    <input type="text" class="input-api p-3" placeholder="Insert your API name">
-                    <input type="text" class="input-api p-3" placeholder="API key">
+                    <input type="text" class="input-api p-3" name="apikeyname" placeholder="Insert your API name">
+                    <input type="text" class="input-api p-3" name="apikey" placeholder="API key">
                     <button class="button-save p-2" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white">add</button>
                 </div>
+            </form>
+
 
                 <table class="table table-responsive text-center table-striped table-hover" style="line-height: 60px !important;">
                 <thead>
@@ -33,9 +38,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($cases as $date => $count)
                     <tr>
-                        <td scope="row">Humidity</td>
-                        <td>nttps://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
+                        <td scope="row"> {{$date}}</td>
+                        <td>{{$count}}</td>
+                        <td>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
+                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
+                        </td>
+                    </tr>
+                    @endforeach
+                    <!-- <tr>
+                        <td scope="row">Fire Sensor</td>
+                        <td>https://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
                         <td>
                             <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
                             <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
@@ -43,20 +58,12 @@
                     </tr>
                     <tr>
                         <td scope="row">Fire Sensor</td>
-                        <td>nttps://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
+                        <td>https://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
                         <td>
                             <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
                             <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
                         </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Fire Sensor</td>
-                        <td>nttps://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
-                        <td>
-                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
-                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
-                        </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -91,19 +98,22 @@
 <!-- =====================================FEATURES AND RULE======================= -->
 <div class="details p-0 m-lg-5 m-md-3 bg-transparent">
     <div class="rule container-fluid overflow-auto">
-        <div class="cardHeader">
+        <div class="cardHeader align-content-center">
             <h4>Just Found 5 Feature(s)</h4>
-            <p>Choose features dimension to create visualization</p>
+            <p>Choose The Features you needed</p>
         </div>
 
         <div class="checkbox p-0 m-0">
+            @foreach($keys as $key)
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    Default checkbox
+                    {{ $key }}
                 </label>
             </div>
-            <div class="form-check">
+            @endforeach
+        
+            <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                 <label class="form-check-label" for="flexCheckChecked">
                     Checked checkbox
@@ -162,7 +172,7 @@
                 <label class="form-check-label" for="flexCheckChecked">
                     Checked checkbox
                 </label>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -192,29 +202,31 @@
             <div class="formula-container container-fluid flex flex-col">
                 <!-- Feature List -->
                 <div class="feature-list p-2">
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 1')">Feature 1</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 2')">Feature 2</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 3')">Feature 3</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 4')">Feature 4</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 5')">Feature 5</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 6')">Feature 6</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 1')">Feature 1</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 2')">Feature 2</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 3')">Feature 3</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 4')">Feature 4</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 5')">Feature 5</div>
-                    <div class="feature-item p-2" onclick="addToFormula('Feature 6')">Feature 6</div>
+                    @foreach($keys as $key)
+                    <div class="feature-item p-2" name="{{ $key }}" onclick="addToFormula('{{ $key }}')">{{ $key }}</div>
+                    @endforeach
+                    <div class="feature-item p-2" name="featurelist2" onclick="addToFormula('Feature 2')">Feature 2</div>
+                    <div class="feature-item p-2" name="featurelist3" onclick="addToFormula('Feature 3')">Feature 3</div>
+                    <div class="feature-item p-2" name="featurelist4" onclick="addToFormula('Feature 4')">Feature 4</div>
+                    <div class="feature-item p-2" name="featurelist5" onclick="addToFormula('Feature 5')">Feature 5</div>
+                    <div class="feature-item p-2" name="featurelist6" onclick="addToFormula('Feature 6')">Feature 6</div>
+                    <div class="feature-item p-2" name="featurelist7" onclick="addToFormula('Feature 1')">Feature 1</div>
+                    <div class="feature-item p-2" name="featurelist8" onclick="addToFormula('Feature 2')">Feature 2</div>
+                    <div class="feature-item p-2" name="featurelist9" onclick="addToFormula('Feature 3')">Feature 3</div>
+                    <div class="feature-item p-2" name="featurelist10" onclick="addToFormula('Feature 4')">Feature 4</div>
+                    <div class="feature-item p-2" name="featurelist11" onclick="addToFormula('Feature 5')">Feature 5</div>
+                    <div class="feature-item p-2" name="featurelist12" onclick="addToFormula('Feature 6')">Feature 6</div>
                     
                 </div>
 
                 <!-- Operators -->
                 <div class="operators">
-                    <button class="operator-button" onclick="addToFormula('*')">*</button>
-                    <button class="operator-button" onclick="addToFormula('+')">+</button>
-                    <button class="operator-button" onclick="addToFormula('/')">/</button>
-                    <button class="operator-button" onclick="addToFormula('-')">-</button>
-                    <button class="operator-button" onclick="addToFormula('(')">(</button>
-                    <button class="operator-button" onclick="addToFormula(')')">)</button>
+                    <button class="operator-button" name="multiply" onclick="addToFormula('*')">*</button>
+                    <button class="operator-button" name="add" onclick="addToFormula('+')">+</button>
+                    <button class="operator-button" name="divide" onclick="addToFormula('/')">/</button>
+                    <button class="operator-button" name="subtract" onclick="addToFormula('-')">-</button>
+                    <button class="operator-button" name="open-brackets" onclick="addToFormula('(')">(</button>
+                    <button class="operator-button" name="close-brackets" onclick="addToFormula(')')">)</button>
 
                 </div>
             </div>
@@ -229,19 +241,25 @@
 
             <div class="threshold-settings container-fluid flex-auto h-max">
             <div id="formField" class="container-fluid flex-col overflow-auto container-form">
+
                 <form id="formField" action="" class="Multiple" method="POST">
                     <div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
                         <label class="p-1" for="feature" name="label">If</label>
                         <div class="dropdown-container" name="dd1">
                             <select class="dropdown-select px-md-1 px-xl-2 form-control">
-                                <option>Feature</option>
-                                <!-- Additional options can be added here -->
+                                @foreach($keys as $key)
+                                <option>{{ $key }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="dropdown-container2 " name="dd2">
                             <select class="dropdown-select2 px-md-1 px-xl-2 form-control">
-                                <option>Condition</option>
+                                <option value=">">></option>
+                                <option value="<"><</option>
+                                <option value="=">=</option>
+                                <option value="<="><=</option>
+                                <option value=">=">>=</option>
                                 <!-- Add more options as needed -->
                             </select>
                         </div>
@@ -272,7 +290,9 @@
 </div>
 </div>
 
-
+<script>
+    var keys = @json($keys);
+</script>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="{{asset('ScriptaddThreshold.js')}}">
 </script>

@@ -114,7 +114,7 @@
                 </li>
 
                 <li>
-                    <a href="/visualization">
+                    <a href="/visualization2">
                         <span class="icon">
                             <i class="fa-solid fa-chart-line"></i>
                         </span>
