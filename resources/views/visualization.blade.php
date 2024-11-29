@@ -4,12 +4,15 @@
 @section('content')
 <div class="container-fluid my-4 mx-0">
     <!-- Dropdowns Row -->
-    <div class="row justify-content-center mb-4 overflow-auto">
+    <div class="row justify-content-center mb-4 gap-3 overflow-auto">
         <!-- Chart Dropdown -->
         <div class="col-auto">
             <div class="dropdown-container">
                 <select class="styled-dropdown">
-                    <option>Chart</option>
+                    <option>Line Chart</option>
+                    <option>Bar Chart</option>
+                    <option>Area Chart</option>
+                    <option>Histogram</option>
                 </select>
             </div>
         </div>
@@ -19,6 +22,7 @@
             <div class="dropdown-container">
                 <select class="styled-dropdown">
                     <option>Dimension</option>
+                    <option>feature</option>
                 </select>
             </div>
         </div>
@@ -27,6 +31,7 @@
         <div class="col-auto">
             <div class="dropdown-container">
                 <select class="styled-dropdown">
+                    <option>Metric</option>
                     <option>Metric</option>
                 </select>
             </div>
