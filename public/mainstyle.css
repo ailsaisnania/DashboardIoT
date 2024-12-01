@@ -868,7 +868,7 @@ cursor: pointer;
 }
 
 .button-save.threshold{
-  bottom: 30px;
+  bottom: 0px;
   inset-inline-end: 30px;
 }
 
@@ -914,4 +914,22 @@ cursor: pointer;
   border-radius: 20px;
   line-height: 50px;
 
+}
+
+
+.button-signin{
+  background-color: var(--blueiot);
+  color: white;
+  width: max-content;
+  border-radius: 12px;
+  border: transparent;
+  box-shadow: #333;
+}
+
+
+.button-signin :hover{
+  background-color: var(--white);
+  color: var(--blueiot);
+  border-radius: 12px;
+  border: transparent;
 }

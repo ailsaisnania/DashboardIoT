@@ -49,7 +49,7 @@ toggle.onclick = function(){
 
     $(document).ready(function(){
     $("button.add-threshold-button").click(function(){
-        $ (".multiple .wrapper-input:last-child").clone().appendTO(".multiple");
+        $ (".multiple .wrapper-input:last-child").clone().appendTo(".multiple");
 });
 });
 

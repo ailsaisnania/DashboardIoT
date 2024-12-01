@@ -8,7 +8,7 @@
         <h5>API Key</h5>
         <p style="color:var(--grey)"> Put your API key on the field below. If you have more than one sensors, manage it by 
         <span>
-            <a id="addAPI" style="cursor: pointer; color: blue; text-decoration: underline;">click here.</a> 
+            <a id="addAPI" style="cursor: pointer; color: blue; text-decoration: underline;" onclick="getSensors()">click here.</a> 
         </span>
         </p>
     </div>
@@ -19,12 +19,12 @@
         <span id="close-modal" class="close justify-end font-semibold">&times;</span>
             <h3 class="h3 pb-4" style="font-weight:600">ADD API </h3> 
 
-            <form action="" method="post" >
+            <form id="form-sensor" action="" method="post" >
                 @csrf
                 <div class="apiwrapper flex flex-row mb-xl-4 mb-md-2">
-                    <input type="text" class="input-api p-3" name="apikeyname" placeholder="Insert your API name">
-                    <input type="text" class="input-api p-3" name="apikey" placeholder="API key">
-                    <button class="button-save p-2" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white">add</button>
+                    <input type="text" class="input-api p-3" id="apikeyname" name="apikeyname" placeholder="Insert your API name">
+                    <input type="text" class="input-api p-3" id="apikey" name="apikey" placeholder="API key">
+                    <button type="submit" class="button-save p-2" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white" onclick="createSensor()">add</button>
                 </div>
             </form>
 
@@ -37,17 +37,15 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                @foreach($cases as $date => $count)
+                <tbody  id="table-body">
                     <tr>
-                        <td scope="row"> {{$date}}</td>
-                        <td>{{$count}}</td>
+                        <td scope="row"></td>
+                        <td></td>
                         <td>
-                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/>
-                            <img class="mx-2" width="30" height="30" src="https://img.icons8.com/dusk/48/edit--v1.png" alt="edit--v1"/>
+                            <button onclick="deleteSensor()"><img class="mx-2" width="30" height="30" src="https://img.icons8.com/color/48/delete-forever.png"  alt="delete-forever"/></button>
                         </td>
                     </tr>
-                    @endforeach
+                    
                     <!-- <tr>
                         <td scope="row">Fire Sensor</td>
                         <td>https://ddfdwjfnwafwpmfw/paths/fada/addw.com</td>
@@ -72,9 +70,12 @@
 
 
     <div class="input-wrapper">
-        <input class="input-text p-3" type="text" placeholder="Input Your API here">
-        <button id="list" class="submit" style="right: 80px; background-color:transparent"><img width="30" height="30" src="https://img.icons8.com/ios/50/down-squared--v2.png" alt="down-squared--v2"/></button>
-        <button class="submit"> Submit</button>
+        <form action=""  id="sensor-form" method="POST">
+        @csrf
+        <input id="api-input" class="input-text p-3" type="text" placeholder="Input Your API here">
+        <button type="submit" id="submit-api" onclick=" generateAPI()" class="submit"> Generate </button>
+        </form>
+        <button id="list" onclick='showAPI()' class="submit" style="right: 80px; background-color:transparent"><img width="30" height="30" src="https://img.icons8.com/ios/50/down-squared--v2.png" alt="down-squared--v2"/></button>
     </div>
 
     <div id="modal-list-api" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: top; z-index: 20003;" class="container-fluid">
@@ -82,13 +83,13 @@
         <div id="list-api" style=" background-color: white; top: 26%; height: max-content; padding: 20px; border-radius: 8px; width: 20%; max-width: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: left;max-height: 400px;" class="modal-content p-xl-4 position-absolute max-w-screen-md container-fluid w-max">
             <span id="close-modalx" class="close justify-end font-semibold">&times;</span>
                 <h5>API List</h5>
-                <div class="list-group border-none list-group-flush mt-3" style="line-height:40px">
-                <a href="#" class="list-group-item list-group-item-action">Fire sensors</a>
+                <div id="list-group" class="list-group border-none list-group-flush mt-3" style="line-height:40px">
+                <!-- <a href="#" class="list-group-item list-group-item-action">Fire sensors</a>
                 <a href="#" class="list-group-item list-group-item-action">Temprature sensors </a>
                 <a href="#" class="list-group-item list-group-item-action">Water sensors</a>
                 <a href="#" class="list-group-item list-group-item-action">Fire sensors </a>
                 <a href="#" class="list-group-item list-group-item-action">Temprature sensors </a>
-                <a href="#" class="list-group-item list-group-item-action">Water sensors</a>
+                <a href="#" class="list-group-item list-group-item-action">Water sensors</a> -->
                 </div>
         </div>
     </div>
@@ -103,15 +104,15 @@
             <p>Choose The Features you needed</p>
         </div>
 
-        <div class="checkbox p-0 m-0">
-            @foreach($keys as $key)
+        <div id="api-keys" class="checkbox p-0 m-0">
+           
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
-                    {{ $key }}
+                    Checked box
                 </label>
             </div>
-            @endforeach
+        
         
             <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -173,12 +174,12 @@
                     Checked checkbox
                 </label>
             </div> -->
-
         </div>
+        <button id="addfeatures" class="position-absolute bottom-0 end-0 btn btn-primary m-3 px-2 py-2" style="width:95%; background-color:white; color:var(--blueiot); border:transparent">Use Features</button>
     </div>
 
     <!-- ================= Features ================ -->
-    <div class="features overflow-auto">
+    <div class="features container-fluid overflow-auto">
         <div class="cardHeader2">
             <h4 class="fw-bold p-md-2">Insert Rule</h4>
         </div>
@@ -202,9 +203,8 @@
             <div class="formula-container container-fluid flex flex-col">
                 <!-- Feature List -->
                 <div class="feature-list p-2">
-                    @foreach($keys as $key)
-                    <div class="feature-item p-2" name="{{ $key }}" onclick="addToFormula('{{ $key }}')">{{ $key }}</div>
-                    @endforeach
+                    
+                    <div class="feature-item p-2" name="featurelist1" onclick="addToFormula('featurelist1')">featurelist1</div>
                     <div class="feature-item p-2" name="featurelist2" onclick="addToFormula('Feature 2')">Feature 2</div>
                     <div class="feature-item p-2" name="featurelist3" onclick="addToFormula('Feature 3')">Feature 3</div>
                     <div class="feature-item p-2" name="featurelist4" onclick="addToFormula('Feature 4')">Feature 4</div>
@@ -232,7 +232,7 @@
             </div>
 
             <div class="button-save p-8">
-                <button class="button-save-formula"> Save > </button>
+                <button id="calculate-button" onclick="calculateFormula()" class="button-save-formula"> Save > </button>
             </div>
         </div>
 
@@ -242,18 +242,16 @@
             <div class="threshold-settings container-fluid flex-auto h-max">
             <div id="formField" class="container-fluid flex-col overflow-auto container-form">
 
-                <form id="formField" action="" class="Multiple" method="POST">
+                <form id="formField" action="" class="Multiple">
                     <div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
                         <label class="p-1" for="feature" name="label">If</label>
                         <div class="dropdown-container" name="dd1">
                             <select class="dropdown-select px-md-1 px-xl-2 form-control">
-                                @foreach($keys as $key)
-                                <option>{{ $key }}</option>
-                                @endforeach
+                                <option>featurelist1</option>
                             </select>
                         </div>
 
-                        <div class="dropdown-container2 " name="dd2">
+                        <div class="dropdown-container2" name="dd2">
                             <select class="dropdown-select2 px-md-1 px-xl-2 form-control">
                                 <option value=">">></option>
                                 <option value="<"><</option>
@@ -290,14 +288,13 @@
 </div>
 </div>
 
-<script>
-    var keys = @json($keys);
-</script>
+
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="{{asset('ScriptaddThreshold.js')}}">
 </script>
-<script src="{{ asset('fetch.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+<script src="{{ asset('fetch/fetch.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 @endsection

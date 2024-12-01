@@ -1,14 +1,12 @@
 
 $(document).on("click", "#adddata", function(add){
     add.preventDefault();
-    $("#formField").append(`<div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
+    $("#formField").append(`
+      <div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
                     <label class="p-1" for="feature" name="label">If</label>
                     <div class="dropdown-container" name="dd1">
                         <select class="dropdown-select px-md-1 px-xl-2 form-control">
-                        ${keys.map(function(key) {
-                          return `<option>${key}</option>`;
-                        }).join('')}
-                            <!-- Additional options can be added here -->
+                        <option value="option">feature</option>
                         </select>
                     </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,3 +31,12 @@ Route::get('/visualization2', function () {
 Route::get('/', [ConfigController::class, 'index']);
 Route::post('/', [ConfigController::class, 'store']);
 Route::get('/config', [ConfigController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'register']);
+
+
+
+
+
+// Route::post('https://jsonplaceholder.typicode.com/posts', [ConfigController::class, 'store']);
+// Route::delete('https://jsonplaceholder.typicode.com/posts/{id}', [ConfigController::class, 'delete']);
+

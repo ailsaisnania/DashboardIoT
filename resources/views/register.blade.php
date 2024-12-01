@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <!-- ======css======= -->
     <link href="{{ asset('mainstyle.css') }}" rel="stylesheet" type="text/css" >
@@ -30,37 +32,40 @@
           <div class="card-body p-5">
 
             <div class="mb-md-1 mt-md-1 pb-1">
-              
+            
+            <form action="" id="registerForm">
+            @csrf
               <h2 class="fw-bold mb-5 text-uppercase text-center" style="color:var(--blueiot)">Welcome Back!</h2>
 
               <div data-mdb-input-init class="form-outline form-white mb-3">
-                <label class="form-label fw-bold" for="typeEmailX" style="color:var(--blueiot)">Email</label>
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <label class="form-label fw-bold" for="typeEmailRegister" style="color:var(--blueiot)">Email</label>
+                <input type="email" id="emailRegister" class="form-control form-control-lg" />
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-2">
-              <label class="form-label fw-bold" for="typePasswordX" style="color:var(--blueiot)">Username</label>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+              <label class="form-label fw-bold" for="typePasswordRegister" style="color:var(--blueiot)">Username</label>
+                <input type="text" id="usernameRegister" class="form-control form-control-lg" />
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-2">
-              <label class="form-label fw-bold" for="typePasswordX" style="color:var(--blueiot)">Password</label>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+              <label class="form-label fw-bold" for="typePasswordRegister" style="color:var(--blueiot)">Password</label>
+                <input type="password" id="passwordRegister" class="form-control form-control-lg" />
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-2">
-              <label class="form-label fw-bold" for="typePasswordX" style="color:var(--blueiot)">Repeat Password</label>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+              <label class="form-label fw-bold" for="typePasswordRegister" style="color:var(--blueiot)">Repeat Password</label>
+                <input type="password" id="confirmPasswordRegister" class="form-control form-control-lg" />
               </div>
 
               <p class="small pb-lg-2 mb-5 text-end"><a class="text-decoration-none" href="#!">Forgot password?</a></p>
               <div class="text-center mt-0">
-              <button class="button-signin text-center" type="submit">Sign In</button>
+              <button id="userRegister" class="button-signin text-center px-3 py-2" type="submit">Sign Upp</button>
               </div>
             </div>
+            </form>
 
             <div class="text-center">
-              <p class="mb-0 ">Don't have an account? <a class="fw-bold text-decoration-none" href="#" style="color:var(--blueiot)">  Sign Up here </a></p>
+              <p class="mb-0 ">Already have Account? <a class="fw-bold text-decoration-none" href="#" style="color:var(--blueiot)">  Sign In here </a></p>
             </div>
 
           </div>
@@ -70,5 +75,9 @@
     </div>
   </div>
 </section>
+
+
+
+<script src="{{asset('fetch/registerLogin.js')}}"></script>
 </body>
 </html>

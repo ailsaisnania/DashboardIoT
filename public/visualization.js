@@ -72,4 +72,51 @@ const data = {
   
   // Event listener for adding new charts
   document.getElementById('addChart').addEventListener('click', addChart);
+
+
+  let chart = null;  // Menyimpan referensi chart saat ini
+
+// Fungsi untuk membuat chart
+function createChart(chartType, labels, data, canvasId) {
+    const ctx = document.getElementById(canvasId).getContext("2d");
+    
+    if (chart) {
+        chart.destroy(); // Hapus chart lama jika ada
+    }
+
+    chart = new Chart(ctx, {
+        type: chartType,
+        data: {
+            labels: labels, 
+            datasets: [
+                {
+                    label: "Data Chart",
+                    data: data,
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1,
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
+}
+
+
+
+// Fungsi untuk menghapus chart tertentu
+function removeChart(chartId) {
+  const chartElement = document.getElementById(chartId);
+  if (chartElement) {
+      chartElement.parentElement.remove();  // Menghapus chart dari DOM
+  }
+}
+
   
