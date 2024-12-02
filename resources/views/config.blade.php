@@ -29,6 +29,14 @@
             </form>
 
 
+            <form action="" id="addFile">
+            <div class="mb-3 flex flex-row gap-2">
+                <input id="inputFile" class="form-control" class="form-control" type="file" id="formFileMultiple" multiple>
+                <button type="submit" id="submitFile" class="px-2 py-1" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white">add</button>
+            </div>
+            </form>
+
+
                 <table class="table table-responsive text-center table-striped table-hover" style="line-height: 60px !important;">
                 <thead>
                     <tr>
