@@ -727,7 +727,8 @@ cursor: pointer;
   border-radius: 25px; /* Fully rounded corners */
   background-color: #ffffff;
   color: #555;
-  font-size: 1rem;
+  font-size: 1.15rem;
+  padding-left: 5px !important;
   width: 200px; /* Adjust width as needed */
   cursor: pointer;
   position: relative;
@@ -935,6 +936,9 @@ cursor: pointer;
 }
 
 
-.fileInput{
+.delete-btn{
+  border: transparent;
+  background-color: white;
+  color: red;
   
 }

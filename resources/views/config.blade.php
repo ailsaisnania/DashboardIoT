@@ -29,10 +29,10 @@
             </form>
 
 
-            <form action="" id="addFile">
+            <form action="" id="csvUploadForm">
             <div class="mb-3 flex flex-row gap-2">
-                <input id="inputFile" class="form-control" class="form-control" type="file" id="formFileMultiple" multiple>
-                <button type="submit" id="submitFile" class="px-2 py-1" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white">add</button>
+                <input  id="formFile" class="form-control" class="form-control" type="file" id="formFileMultiple" multiple>
+                <button type="submit"  id="uploadButton" class="px-2 py-1" style="border-radius:10px; border:none; background-color:var(--blueiot); color:white">add</button>
             </div>
             </form>
 
@@ -296,7 +296,7 @@
 </div>
 </div>
 
-
+<script src="{{ asset('fetch/fileUpload.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="{{asset('ScriptaddThreshold.js')}}">
 </script>

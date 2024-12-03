@@ -33,7 +33,7 @@ Route::post('/', [ConfigController::class, 'store']);
 Route::get('/config', [ConfigController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register']);
 
-
+Route::post('/upload-csv', [ConfigController::class, 'uploadCSV']);
 
 
 

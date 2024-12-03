@@ -22,9 +22,6 @@
 
     <title>Dashboard IoT</title>
     <style>
-        dialog::backdrop {
-            
-        }
         .topbar {
             display: flex;
             align-items: center;
@@ -178,7 +175,7 @@
                         </div>
                     </div>
 
-                    <!-- 
+                    
 
                     <div class="items-notif container-fluid flex flex-row justify-start align-items-center mt-xl-3 mt-md-3 mt-sm-2 p-xl-2 p-md-2 p-sm-1">
                         <img width="48" height="48" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
@@ -250,7 +247,7 @@
                                 yesterday, 00.21
                             </p>
                         </div>
-                    </div> -->
+                    </div>
             </div>
             </div>
 
@@ -261,7 +258,7 @@
     <script>
         // Simulasi data yang datang, misalnya dari sensor
 let sensorData = 0; // Nilai data sensor yang berubah
-let threshold = 700; // Batas threshold yang ditentukan
+let threshold = 0; // Batas threshold yang ditentukan
 
 // Fungsi untuk memeriksa apakah data telah melebihi threshold
 function checkThreshold() {
@@ -291,11 +288,11 @@ document.getElementById('closeModalBtn').addEventListener('click', function() {
 });
 
 // Simulasi perubahan data (misalnya data sensor berubah setiap detik)
-setInterval(function() {
-    sensorData += Math.floor(Math.random() * 20); // Simulasi perubahan data
-    console.log(sensorData); // Menampilkan data untuk debugging
-    checkThreshold(); // Memeriksa apakah data melebihi threshold
-}, 1000); // Update setiap detik
+// setInterval(function() {
+//     sensorData += Math.floor(Math.random() * 20); 
+//     console.log(sensorData); 
+//     checkThreshold();
+// }, 1000);
 
     </script>
     <script src="{{ asset('script.js') }}"></script>

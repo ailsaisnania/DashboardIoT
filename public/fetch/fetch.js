@@ -1,4 +1,3 @@
-
 const sensorEndpoint = 'https://jsonplaceholder.typicode.com/posts';
 const choosenEndpoint ='https://jsonplaceholder.typicode.com/posts';
 const thresholdEndpoint = '';

@@ -89,4 +89,27 @@ class ConfigController extends Controller
         ], $response->status());
     }
     
+    public function uploadCSV(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+
+            // Validasi tipe file
+            if ($file->getClientOriginalExtension() !== 'csv') {
+                return response('Invalid file type. Please upload a CSV file.', 400);
+            }
+
+            // Baca isi file
+            $csvContent = file_get_contents($file->getRealPath());
+
+            // Kembalikan isi file ke client
+            return response($csvContent, 200)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        return response('No file uploaded.', 400);
+    }
 }
+
+
+
