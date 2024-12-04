@@ -89,3 +89,35 @@ window.addEventListener('click', (event) => {
 });
 
 
+
+
+
+
+
+
+
+$(document).on("click", "#add-threshold-data", function(add){
+  add.preventDefault();
+  $("#formThreshold").append(`
+                <div class="threshold-minmax container-fluid flex gap-4 mt-3">
+                <div class="dropdown-fitur">
+                    <select class="dropdown-fitur" id="dropdown-fitur">
+                        <option value="Features 1">Features 1</option>
+                        <option value="Features 2">Features 2</option>
+                    </select>
+                </div>
+                <div class="value">
+                    <input class="threshold-input mb-2" id="thresholdinputmin" type="text" placeholder="Add min value" />
+                    <input class="threshold-input" id="thresholdinputmax" type="text" placeholder="add max value" />
+                </div>
+            </div>
+    `);
+})
+
+
+$(document).on("click", "#remove", function(del){
+  del.preventDefault();
+  $(this).parent().remove();
+});
+
+

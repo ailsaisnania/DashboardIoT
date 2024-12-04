@@ -108,7 +108,7 @@
 <div class="details p-0 m-lg-5 m-md-3 bg-transparent">
     <div class="rule container-fluid overflow-auto">
         <div class="cardHeader align-content-center">
-            <h4>Just Found 5 Feature(s)</h4>
+            <h4>Just Found Feature(s)</h4>
             <p>Choose The Features you needed</p>
         </div>
 
@@ -247,40 +247,58 @@
         <div id="threshold" class="tab-content py-2 px-3" style="height:85%">
             <h5 class="mb-2 mt-3">Threshold</h5>
 
-            <div class="threshold-settings container-fluid flex-auto h-max">
-            <div id="formField" class="container-fluid flex-col overflow-auto container-form">
-
-                <form id="formField" action="" class="Multiple">
-                    <div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
-                        <label class="p-1" for="feature" name="label">If</label>
-                        <div class="dropdown-container" name="dd1">
-                            <select class="dropdown-select px-md-1 px-xl-2 form-control">
-                                <option>featurelist1</option>
-                            </select>
-                        </div>
-
-                        <div class="dropdown-container2" name="dd2">
-                            <select class="dropdown-select2 px-md-1 px-xl-2 form-control">
-                                <option value=">">></option>
-                                <option value="<"><</option>
-                                <option value="=">=</option>
-                                <option value="<="><=</option>
-                                <option value=">=">>=</option>
-                                <!-- Add more options as needed -->
-                            </select>
-                        </div>
-
-                        <input type="text" name="it1" class="form-control input-threshold flex relative" placeholder='Insert Indicator'>
-                        <input type="text" name="it2" class="form-control input-threshold flex relative" placeholder='Create Alert'>
-                        <img id="remove" width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/20/filled-trash.png" alt="filled-trash"/></div>
-                </form>
+            <div class="threshold-settings container-fluid flex-auto h-max pt-4">
+            <div id="formThreshold" class="container-fluid flex-col overflow-auto container-form">
+            <form id="formField" action="" class="Multiple">
+            <div class="threshold-minmax container-fluid flex gap-4">
+                <div class="dropdown-fitur">
+                    <select class="dropdown-fitur" id="dropdown-fitur">
+                        <option value="Features 1">Features 1</option>
+                        <option value="Features 2">Features 2</option>
+                    </select>
+                </div>
+                <div class="value">
+                    <input class="threshold-input mb-2" id="thresholdinputmin" type="text" placeholder="Add min value" />
+                    <input class="threshold-input" id="thresholdinputmax" type="text" placeholder="add max value" />
+                </div>
             </div>
-
-            </div>
-
-        
             
-            <button class="add-threshold-button p-2 m-3 ml-0" id="adddata"><a class="text-decoration-none">+ Add Threshold</a></button>
+            </div>
+            <button class="add-threshold-button p-2 m-3 ml-0" style="color:white" id="add-threshold-data"><a class="text-decoration-none">+ Add Threshold</a></button>
+                            <!-- <div id="formField" class="container-fluid flex-col overflow-auto container-form">
+
+                                <form id="formField" action="" class="Multiple">
+                                    <div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
+                                        <label class="p-1" for="feature" name="label">If</label>
+                                        <div class="dropdown-container" name="dd1">
+                                            <select class="dropdown-select px-md-1 px-xl-2 form-control">
+                                                <option>featurelist1</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="dropdown-container2" name="dd2">
+                                            <select class="dropdown-select2 px-md-1 px-xl-2 form-control">
+                                                <option value=">">></option>
+                                                <option value="<"><</option>
+                                                <option value="=">=</option>
+                                                <option value="<="><=</option>
+                                                <option value=">=">>=</option>
+                                                
+                                            </select>
+                                        </div>
+
+                                        <input type="text" name="it1" class="form-control input-threshold flex relative" placeholder='Insert Indicator'>
+                                        <input type="text" name="it2" class="form-control input-threshold flex relative" placeholder='Create Alert'>
+                                        <img id="remove" width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/20/filled-trash.png" alt="filled-trash"/></div>
+                                </form>
+                            </div> -->
+
+            </div>
+
+    
+            
+            <!-- <button class="add-threshold-button p-2 mt-1 m-3 ml-0" id="adddata"><a class="text-decoration-none">+ Add Threshold</a></button> -->
+
 
 
             <div class="button-save threshold position-absolute">

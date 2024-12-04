@@ -6,7 +6,7 @@
 
 <div class="container-fluid overflow-auto my-4 mx-0">
 
-    <div id="visualizations">
+    <div id="visualizations" class="container-fluid overflow-auto">
             <!-- All visualizations will be dynamically added here -->
     </div>
 

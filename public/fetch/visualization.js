@@ -37,25 +37,25 @@ function addNewVisualization() {
 
     const container = document.getElementById('visualizations');
     const newChartDiv = document.createElement('div');
-    newChartDiv.classList.add('relative', 'container-fluid', 'overflow-auto', 'm-3');
+    newChartDiv.classList.add('container-fluid', 'overflow-y-auto', 'm-3');
     newChartDiv.id = `chart${chartCount}-container`;
-
     newChartDiv.innerHTML = `
-        <div class="col-auto justify-content-center">
-        <div class="flex flex-row justify-content-center">
-            <select id="chartType${chartCount}" class="styled-dropdown">
-                <option value="bar">Bar Chart</option>
-                <option value="line">Line Chart</option>
-                <option value="scatter">Scatter Plot</option>
-            </select>
-            <select id="xFeature${chartCount}" class="styled-dropdown"></select>
-            <select id="yFeature${chartCount}" class="styled-dropdown"></select>
-            <button id="deleteChart${chartCount}" class="delete-btn"><img width="40" height="40" src="https://img.icons8.com/dotty/80/filled-trash.png" alt="filled-trash"/></button>
+        <div class="col-auto justify-content-center container-fluid overflow-auto">
+            <div class="flex flex-row justify-content-center">
+                <select id="chartType${chartCount}" class="styled-dropdown">
+                    <option value="bar">Bar Chart</option>
+                    <option value="line">Line Chart</option>
+                    <option value="scatter">Scatter Plot</option>
+                </select>
+                <select id="xFeature${chartCount}" class="styled-dropdown"></select>
+                <select id="yFeature${chartCount}" class="styled-dropdown"></select>
+                <button id="deleteChart${chartCount}" class="delete-btn"><img width="40" height="40" src="https://img.icons8.com/dotty/80/filled-trash.png" alt="filled-trash"/></button>
+            </div>
         </div>
+        <div class="chart-container container-fluid overflow-auto whitespace-nowrap">
+            <canvas class="chart chartconfig" style="width:100%" id="chart${chartCount}"></canvas>
         </div>
-        <div class="chart-card container-fluid overflow-auto pt-4">
-            <canvas class="chart card" id="chart${chartCount}" style="width:100%"></canvas>
-        </div>
+
     `;
 
     container.appendChild(newChartDiv);
@@ -123,8 +123,10 @@ async function updateChart(chartId) {
 // Objek untuk menyimpan semua instance chart berdasarkan ID
 const chartInstances = {};
 
+// Fungsi untuk membuat chart
 function createChart(chartId, chartType, labels, data) {
     const ctx = document.getElementById(`chart${chartId}`).getContext('2d');
+    
 
     // Hancurkan chart lama jika ada
     if (chartInstances[chartId]) {
@@ -135,10 +137,10 @@ function createChart(chartId, chartType, labels, data) {
     chartInstances[chartId] = new Chart(ctx, {
         type: chartType,
         data: {
-            labels: labels, // Sumbu X (Label kategori atau string)
+            labels: labels, 
             datasets: [{
-                label: 'Data', // Label untuk sumbu Y
-                data: data, // Data untuk sumbu Y (numerik)
+                label: 'Data',
+                data: data, // Data untuk sumbu Y
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
@@ -146,15 +148,52 @@ function createChart(chartId, chartType, labels, data) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false, // Agar chart bisa menyesuaikan container
             scales: {
+                x: {
+                    offset: true,
+                    categoryPercentage: 4, // Mengatur jarak antar kategori
+                    barPercentage: 100,
+                    ticks: {
+                        padding: 10, // Menambahkan padding untuk jarak antar label
+                        autoSkip: true,
+                        stepSize: 10, 
+                        labelOffset: 20, // Menambah jarak antara label dan axis
+                        maxRotation: 45,  // Setel rotasi label ke 0 derajat
+                        minRotation: 45,  // Setel rotasi minimal juga 
+                    },
+                    grid: {
+                        drawTicks: false, // Menghilangkan garis kecil di dekat ticks
+                    },
+                },
                 y: {
-                    beginAtZero: true // Mengatur agar sumbu Y mulai dari 0
+                    beginAtZero: true,
+                    ticks: {
+                        padding: 10 // Jarak antara nilai sumbu Y dengan garis
+                    }
+                }
+            },
+            layout: {
+                padding: {
+                    left: 20,
+                    right: 20,
+                    top: 20,
+                    bottom: 20,
+                }
+            },
+            plugins: {
+                tooltip: {
+                    mode: 'index', // Mengatur interaksi tooltip
+                    intersect: true,
                 }
             }
         }
     });
+
     saveChartsToLocalStorage();
 }
+
+
 function deleteChart(chartId) {
     if (chartInstances[chartId]) {
         chartInstances[chartId].destroy();
@@ -179,7 +218,7 @@ async function restoreChartsFromLocalStorage() {
 
             const container = document.getElementById('visualizations');
             const newChartDiv = document.createElement('div');
-            newChartDiv.classList.add('relative', 'container-fluid', 'overflow-auto', 'm-3');
+            newChartDiv.classList.add('container-fluid', 'overflow-auto', 'm-3');
             newChartDiv.id = `chart${config.chartId}-container`;
 
             newChartDiv.innerHTML = `
@@ -196,7 +235,7 @@ async function restoreChartsFromLocalStorage() {
                     </div>
                 </div>
                 <div class="chart-card container-fluid overflow-auto pt-4">
-                    <canvas class="chart card" id="chart${config.chartId}" style="width:100%"></canvas>
+                    <canvas class="chart" id="chart${config.chartId}" style="width:100%"></canvas>
                 </div>
             `;
 
@@ -229,7 +268,4 @@ async function restoreChartsFromLocalStorage() {
 window.onload = () => {
     restoreChartsFromLocalStorage();
 };
-document.addEventListener('DOMContentLoaded', () => {
-    restoreChartsFromLocalStorage();
-});
 
