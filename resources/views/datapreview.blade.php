@@ -289,41 +289,41 @@
 
     <script src="{{ asset('fetch/fetch.js') }}"></script>
     <script>
-        async function fetchData() {
+
+    async function fetchData() {
     try {
-        const response = await fetch('http://127.0.0.1:8000/public/fetch/tes.json', { mode: 'no-cors' }); // Pastikan path benar
+        const response = await fetch('http://localhost:8000/public/fetch/tes.json');
         if (!response.ok) {
-            throw new Error('Gagal memuat file JSON: ' + response.status);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        populateTable(data); // Panggil fungsi untuk menampilkan data
+        console.log(data);
+        populateTable(data);
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error:', error.message);
     }
 }
 
-function populateTable(data) {
-    const tableBody = document.querySelector('#sensorTable tbody');
-    tableBody.innerHTML = ''; // Kosongkan tabel
+    function populateTable(data) {
+    const tableBody = document.querySelector('#dataTable tbody');
+    tableBody.innerHTML = '';
 
-    data.forEach((sensor, sensorIndex) => {
-        const { name, value, timestamps } = sensor;
-
-        value.forEach((val, index) => {
+    data.forEach((item, index) => {
+        item.value.forEach((value, i) => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${sensorIndex + 1}-${index + 1}</td>
-                <td>${name}</td>
-                <td>${val}</td>
-                <td>${new Date(timestamps[index]).toLocaleString()}</td>
+                <td>${index + 1}-${i + 1}</td>
+                <td>${item.functionName}</td>
+                <td>${value}</td>
+                <td>${new Date(item.date[i]).toLocaleString()}</td>
             `;
             tableBody.appendChild(row);
         });
     });
 }
 
-// Panggil fungsi fetchData saat halaman dimuat
 fetchData();
+
 
     </script>
 @endsection
