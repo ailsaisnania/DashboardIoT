@@ -40,3 +40,6 @@ Route::post('/upload-csv', [ConfigController::class, 'uploadCSV']);
 // Route::post('https://jsonplaceholder.typicode.com/posts', [ConfigController::class, 'store']);
 // Route::delete('https://jsonplaceholder.typicode.com/posts/{id}', [ConfigController::class, 'delete']);
 
+Route::get('/fetch/tes.json', function () {
+    return response()->file(public_path('tes.json'));
+});

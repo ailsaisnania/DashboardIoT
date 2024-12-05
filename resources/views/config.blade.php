@@ -120,68 +120,6 @@
                     Checked box
                 </label>
             </div>
-        
-        
-            <!-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                    Checked checkbox
-                </label>
-            </div> -->
         </div>
         <button id="addfeatures" class="position-absolute bottom-0 end-0 btn btn-primary m-3 px-2 py-2" style="width:95%; background-color:white; color:var(--blueiot); border:transparent">Use Features</button>
     </div>
@@ -196,6 +134,7 @@
         <div class="tabs">
             <button class="tab-button pb-2 pt-2 px-3 active" onclick="openTab(event, 'formula')">Formula</button>
             <button class="tab-button pb-2 pt-2 px-3" onclick="openTab(event, 'threshold')">Threshold</button>
+            <button class="tab-button pb-2 pt-2 px-3" onclick="openTab(event, 'compare')">Save Formula and Compare</button>
         </div>
 
         <!-- Content Sections for Tabs -->
@@ -209,9 +148,7 @@
 
             <!-- Feature List and Operators -->
             <div class="formula-container container-fluid flex flex-col">
-                <!-- Feature List -->
                 <div class="feature-list p-2">
-                    
                     <div class="feature-item p-2" name="featurelist1" onclick="addToFormula('featurelist1')">featurelist1</div>
                     <div class="feature-item p-2" name="featurelist2" onclick="addToFormula('Feature 2')">Feature 2</div>
                     <div class="feature-item p-2" name="featurelist3" onclick="addToFormula('Feature 3')">Feature 3</div>
@@ -244,80 +181,100 @@
             </div>
         </div>
 
-        <div id="threshold" class="tab-content py-2 px-3" style="height:85%">
+
+        <!----------------------------- threshold -------------------------------------------------------------------------------------------------------->
+
+        <div id="threshold" class="tab-content py-2 px-3" style="height:100%">
             <h5 class="mb-2 mt-3">Threshold</h5>
 
             <div class="threshold-settings container-fluid flex-auto h-max pt-4">
-            <div id="formThreshold" class="container-fluid flex-col overflow-auto container-form">
-            <form id="formField" action="" class="Multiple">
-            <div class="threshold-minmax container-fluid flex gap-4">
-                <div class="dropdown-fitur">
-                    <select class="dropdown-fitur" id="dropdown-fitur">
-                        <option value="Features 1">Features 1</option>
-                        <option value="Features 2">Features 2</option>
-                    </select>
+                <div id="formThreshold" class="container-fluid flex-col overflow-auto container-form" style="max-height:240px">
+                    <form id="formField" action="" class="Multiple">
+                        <div class="threshold-minmax container-fluid flex gap-4">
+                            <div class="dropdown-fitur">
+                                <select class="dropdown-fitur" id="dropdown-fitur">
+                                    <option value="Features 1">Features 1</option>
+                                    <option value="Features 2">Features 2</option>
+                                </select>
+                            </div>
+
+                            <div class="value">
+                                <input class="threshold-input mb-2" id="thresholdinputmin" type="text" placeholder="Add min value" />
+                                <input class="threshold-input" id="thresholdinputmax" type="text" placeholder="add max value" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="value">
-                    <input class="threshold-input mb-2" id="thresholdinputmin" type="text" placeholder="Add min value" />
-                    <input class="threshold-input" id="thresholdinputmax" type="text" placeholder="add max value" />
-                </div>
-            </div>
-            
-            </div>
-            <button class="add-threshold-button p-2 m-3 ml-0" style="color:white" id="add-threshold-data"><a class="text-decoration-none">+ Add Threshold</a></button>
-                            <!-- <div id="formField" class="container-fluid flex-col overflow-auto container-form">
 
-                                <form id="formField" action="" class="Multiple">
-                                    <div id="wrapper" class="input-wrapper container-fluid flex-auto gap-2">
-                                        <label class="p-1" for="feature" name="label">If</label>
-                                        <div class="dropdown-container" name="dd1">
-                                            <select class="dropdown-select px-md-1 px-xl-2 form-control">
-                                                <option>featurelist1</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="dropdown-container2" name="dd2">
-                                            <select class="dropdown-select2 px-md-1 px-xl-2 form-control">
-                                                <option value=">">></option>
-                                                <option value="<"><</option>
-                                                <option value="=">=</option>
-                                                <option value="<="><=</option>
-                                                <option value=">=">>=</option>
-                                                
-                                            </select>
-                                        </div>
-
-                                        <input type="text" name="it1" class="form-control input-threshold flex relative" placeholder='Insert Indicator'>
-                                        <input type="text" name="it2" class="form-control input-threshold flex relative" placeholder='Create Alert'>
-                                        <img id="remove" width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/20/filled-trash.png" alt="filled-trash"/></div>
-                                </form>
-                            </div> -->
-
-            </div>
-
-    
-            
-            <!-- <button class="add-threshold-button p-2 mt-1 m-3 ml-0" id="adddata"><a class="text-decoration-none">+ Add Threshold</a></button> -->
-
-
-
-            <div class="button-save threshold position-absolute">
+                <button class="add-threshold-button p-2 m-3 ml-0" style="color:white" id="add-threshold-data"><a class="text-decoration-none">+ Add Threshold</a></button>
+                <div class="button-save threshold position-absolute">
                 <button class="button-save-formula"> Save > </button>
             </div>
+            </div>
         </div>
+
+
+
+    <!---------------------------------------------------- new tab for value comparison -------------------------------------------------------------------------------------------------->
+    <div id="compare" class="tab-content py-2 px-3" style="height:100%" >
+            <h5 class="mb-2 mt-3">Save Formula and Compare</h5>
+
+            <div class="formula-result-settings container-fluid flex-auto h-max pt-4">
+                <div id="formThreshold" class="container-fluid flex-col overflow-auto container-form" style="max-height:300px">
+                    <form action="" id="formFormula">
+                        <div class="formula-result container-fluid flex gap-3">
+                            <div class="dropdown-value"style=" width: 50%; ">
+                                <select class="dropdown-value" id="dropdown-value">
+                                    <option value="Features 1">Features 1</option>
+                                    <option value="Features 2">Features 2</option>
+                                </select>
+                            </div>
+
+                            <div class="dropdown-value" style=" width:16%; ">
+                                <select name="operator" class="dropdown-value" id="operator-formula" required="">
+                                    <option value="<">&lt;</option>
+                                    <option value=">">&gt;</option>
+                                    <option value="=">=</option>
+                                    <option value="!=">!=</option>
+                                </select>
+                            </div>
+
+                            <div class="indikator-wrapper flex flex-row" style="width:50%;">
+                                <input type="text" class="dropdown-value px-1" style="width:100%;" placeholder="insert indicator">
+                            </div>
+
+                            <div class="dropdown-value" style="width:40%">
+                                <select id="value-formula" name="dropdown-fitur-compare" class="dropdown-value" style="width:100%">
+                                    <option value="Feature 1">Feature 1</option>
+                                    <option value="Feature 2">Feature 2</option>
+                                    <option value="Feature 3">Feature 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+
+                <button class="add-threshold-button p-2 m-3 mx-2 ml-0" style="color:white" id="add-more-formula"><a class="text-decoration-none">+ Add More</a></button>
+                <div class="button-save threshold position-absolute">
+                    <button id="add-compare" class="button-save-formula"> Save > </button>
+                </div>
+            </div>
+   
     </div>
 
+    <!------------------------------- save and next ------------------------------------------------------------------------------------------------------------------------------------>
+
 </div>
+
 <div class="d-grid gap-2 px-5 mb-4">
     <button class="button-master-save mt-md-3"> <a class="text-decoration-none" style="color:white" href="/datapreview">Save > </a></button>
 </div>
-</div>
-</div>
+
 
 <script src="{{ asset('fetch/fileUpload.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="{{asset('ScriptaddThreshold.js')}}">
-</script>
+<script src="{{asset('ScriptaddThreshold.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 <script src="{{ asset('fetch/fetch.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

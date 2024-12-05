@@ -39,14 +39,13 @@ toggle.onclick = function(){
         document.getElementById(tabName).classList.add('active');
         event.currentTarget.classList.add('active');
     }
+
+
+    
     function addToFormula(value) {
         const input = document.getElementById('formulaInput');
         input.value += value + ' ';
     }
-
-
-
-
     $(document).ready(function(){
     $("button.add-threshold-button").click(function(){
         $ (".multiple .wrapper-input:last-child").clone().appendTo(".multiple");

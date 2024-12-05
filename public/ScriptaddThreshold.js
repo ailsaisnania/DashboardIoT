@@ -121,3 +121,47 @@ $(document).on("click", "#remove", function(del){
 });
 
 
+
+
+$(document).on("click", "#add-more-formula", function(add){
+  add.preventDefault();
+  $("#formFormula").append(`
+        <div class="formula-result container-fluid flex gap-3 mt-3">
+                            <div class="dropdown-value"style=" width: 50%; ">
+                                <select class="dropdown-value" id="dropdown-value">
+                                    <option value="Features 1">Features 1</option>
+                                    <option value="Features 2">Features 2</option>
+                                </select>
+                            </div>
+
+                            <div class="dropdown-value" style=" width:16%; ">
+                                <select name="operator" class="dropdown-value" id="operator-formula" required="">
+                                    <option value="<">&lt;</option>
+                                    <option value=">">&gt;</option>
+                                    <option value="=">=</option>
+                                    <option value="!=">!=</option>
+                                </select>
+                            </div>
+
+                            <div class="indikator-wrapper flex flex-row" style="width:50%;">
+                                <input type="text" class="dropdown-value px-1" style="width:100%;" placeholder="insert indicator">
+                            </div>
+
+                            <div class="dropdown-value" style="width:40%">
+                                <select id="value-formula" name="dropdown-fitur-compare" class="dropdown-value" style="width:100%">
+                                    <option value="Feature 1">Feature 1</option>
+                                    <option value="Feature 2">Feature 2</option>
+                                    <option value="Feature 3">Feature 3</option>
+                                </select>
+                            </div>
+                        </div>
+    `);
+})
+
+
+$(document).on("click", "#remove", function(del){
+  del.preventDefault();
+  $(this).parent().remove();
+});
+
+

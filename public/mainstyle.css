@@ -362,6 +362,7 @@ body{
     color: white;
     padding: 20px !important; /* Ensure padding is applied */
     border-radius: 20px;
+    max-height: max-content;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     position: relative;
     box-sizing: content-box; /* Override box-sizing to allow padding to extend */
@@ -417,7 +418,7 @@ body{
     flex-direction: row;
     align-items: center;
     margin-top: 10px;
-    max-height: 400px;
+    max-height: 250px;
 }
 
 .container-form{
@@ -870,7 +871,7 @@ cursor: pointer;
 }
 
 .button-save.threshold{
-  bottom: 0px;
+  bottom: -70px;
   inset-inline-end: 30px;
 }
 
@@ -975,3 +976,18 @@ cursor: pointer;
   border-radius: 4px;
   
 }
+
+.dropdown-value{
+  border-color:var(--blueiot); 
+  width:100%; 
+  padding:30px;
+  background-color: white;
+  border-radius: 10px;
+  color: var(--blueiot); 
+  font-weight: 400;
+  height: 40px;
+}
+
+
+
+

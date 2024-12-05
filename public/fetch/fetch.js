@@ -312,3 +312,14 @@ function addToFormula(key) {
 // Panggil fungsi populateFeatureList saat halaman dimuat
 document.addEventListener('DOMContentLoaded', populateFeatureList);
 
+
+
+
+
+
+
+
+
+
+
+
